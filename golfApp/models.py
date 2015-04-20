@@ -49,6 +49,7 @@ class Profile(models.Model):
 	firstName = models.CharField(max_length=50)
 	lastName = models.CharField(max_length=50)
 	email = models.CharField(max_length=75)
+	phone = models.CharField(max_length=15, blank = True, null = True)
 	
 	class Meta(object):
 		verbose_name_plural = "Profiles"
@@ -90,6 +91,7 @@ class Scorecard(models.Model):
 	user = models.ForeignKey(User)
 	coursePar = models.ForeignKey(coursePar)
 	course = models.ForeignKey(Course)
+	date = models.DateField(null=True, blank=True)
 	userHole1 = models.IntegerField(blank=True, null=True)
 	userHole2 = models.IntegerField(blank=True, null=True)
 	userHole3 = models.IntegerField(blank=True, null=True)
