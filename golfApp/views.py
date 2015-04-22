@@ -11,7 +11,7 @@ from datetime import datetime
 import json
 
 def home(request):
-	return render(request, "base.html")
+	return render(request, "golfApp/home.html")
 
 #Courses Based on Location:
 
@@ -58,6 +58,7 @@ def userLogin(request):
 	c = {}
 	c.update(csrf(request))
 	return render_to_response(reverse('userLogin'), c)
+	
 
 def auth_view(request):
 	username = request.POST.get('username','')
@@ -103,3 +104,8 @@ def games(request):
 
 def rules(request):
         return render (request, "golfApp/rules.html")
+
+def userLogin(request):
+	return render (request, "golfApp/user_login.html")
+	
+

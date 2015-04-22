@@ -1,13 +1,81 @@
+{% load static from staticfiles %}
+
 <!DOCTYPE html>
-
-<html>
-<head>
-	<title>GoGolf</title>
+	
+<html lang="en">
+  <head>
+    <title>Go Golf</title>
+    
+    <!-- Style Sheets-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+  
+    <!-- Java Script-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/instagram.js' %}"></script>
+	
 </head>
-
 <body>
-<h1>Hello World</h1>
-<p>Welcome to my world</p>
+<div id="wrapper">
 
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+      <a href="#">Profile</a>
+    </li>
+    <li>
+      <a href="#">Courses</a>
+    </li>
+    <li>
+      <a href="#">Scorecards</a>
+    </li>
+    <li>
+      <a href="#">Start Game</a>
+    </li>
+    <li>
+      <a href="rules.html">Rules</a>
+    </li>
+    <li>
+      <a href="#">Other Games</a>
+    </li>
+    <li>
+      <a href="#">Login/Logout</a>
+    </li>
+  </ul>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+  <div class="nav-bar">
+    <div class="nav-bar-content">
+      <img src="{% static 'css/images/menu.png' %}" href="#menu-toggle" id="menu-toggle" style="height:50px;">
+      <h4 style="float: right">go golf</h4>
+    </div>
+  </div>
+  <div class="container-fluid">
+	{% block content %}{% endblock %} 
+  </div>
+</div>
+</div>
+
+<!--jQuery-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!--Bootstrap-->
+    <script src="js/bootstrap.min.js"></script>
+<!--Menu Toggle-->
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+    
+        
+	
 </body>
-</html>
