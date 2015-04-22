@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Course(models.Model):
 	name = models.CharField(max_length=50)
 	address = models.CharField(max_length=50)
-	latlon = models.CharField(max_length=50)
+	latlon = models.CharField(max_length=50, blank=True, null=True)
 	MtoTprice = models.CharField(max_length=50)
 	FtoSprice = models.CharField(max_length=50)
 	site = models.CharField(max_length=50)
@@ -77,12 +77,15 @@ class coursePar(models.Model):
 	
 	def parTotal(self):
 		return self.hole1+hole2+hole3+hole4+hole5+hole6+hole7+hole8+hole9+hole10+hole11+hole12+hole13+hole14+hole15+hole16+hole17+hole18
+
+	def parTotalNine(self):
+		return self.hole1+hole2+hole3+hole4+hole5+hole6+hole7+hole8+hole9	
 	
 	class Meta(object):
 		verbose_name_plural = "coursePars"
 	
 	def __unicode__(self): 
-		return self.name
+		return unicode (self.id)
 	
 	def save(self, *args, **kwargs):
 		super(coursePar, self).save(*args, **kwargs)
@@ -112,12 +115,15 @@ class Scorecard(models.Model):
 
 	def userTotal(self):
 		return self.userHole1+userHole2+userHole3+userHole4+userHole5+userHole6+userHole7+userHole8+userHole9+userHole10+userHole11+userHole12+userHole13+userHole14+userHole15+userHole16+userHole17+userHole18
-	
+
+	def userTotalNine(self):
+		return self.userHole1+userHole2+userHole3+userHole4+userHole5+userHole6+userHole7+userHole8+userHole9	
+
 	class Meta(object):
 		verbose_name_plural = "Scorecards"
 	
 	def __unicode__(self):
-		return self.name
+		return unicode (self.id)
 	
 	def save(self, *args, **kwargs):
 		super(Scorecard, self).save(*args, **kwargs)

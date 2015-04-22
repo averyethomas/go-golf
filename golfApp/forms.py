@@ -2,7 +2,6 @@ from django import forms
 from django.core.exceptions import ValidationError
 from golfApp import models
 from models import Course, Scorecard, Profile
-import django_filters
 
 class login (forms.ModelForm):
 	class Meta:
@@ -19,7 +18,7 @@ class locate (forms.ModelForm):
 class createCourse (forms.ModelForm):
        class Meta:
               model = Course
-              fields = ['name', 'address', 'MtoTprice', 'FtoSprice', 'site', 'phone', 'DrivingRange', 'Public', 'Private', 'Lessons', 'ClubRental', 'Putting Green', 'LockerRoom', 'CaddieHire', 'ProShop', 'Restaurant', 'WaterHazards', 'Bunkers', 'ParThree', 'MiniGolf', 'NineHolePlay', 'EighteenHolePlay',]
+              fields = ['name', 'address', 'MtoTprice', 'FtoSprice', 'site', 'phone', 'DrivingRange', 'Public', 'Private', 'Lessons', 'ClubRental', 'PuttingGreen', 'LockerRoom', 'CaddieHire', 'ProShop', 'Restaurant', 'WaterHazards', 'Bunkers', 'ParThree', 'MiniGolf', 'NineHolePlay', 'EighteenHolePlay',]
 
 class createScorecard (forms.ModelForm):
 	class Meta:
