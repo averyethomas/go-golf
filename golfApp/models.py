@@ -4,12 +4,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Course(models.Model):
-	courseID = models.IntegerField(blank=True, null=True)
 	name = models.CharField(max_length=50)
-	street = models.CharField(max_length=50)
-	city = models.CharField(max_length=50)
-	state = models.CharField(max_length=50)
-	zipcode = models.CharField(max_length=50)
+	address = models.CharField(max_length=50)
 	latlon = models.CharField(max_length=50)
 	MtoTprice = models.CharField(max_length=50)
 	FtoSprice = models.CharField(max_length=50)
@@ -35,7 +31,7 @@ class Course(models.Model):
 	class Meta(object):
 		verbose_name_plural = "Courses"
 	def __unicode__(self):
-		return unicode (self.courseID)
+		return unicode (self.name)
 	def save(self, *args, **kwargs):
 		super(Course, self).save(*args, **kwargs)
 
@@ -54,9 +50,9 @@ class Profile(models.Model):
 	class Meta(object):
 		verbose_name_plural = "Profiles"
 	def __unicode__(self):
-		return unicode (self.useriD)
+		return unicode (self.user)
 	def save(self, *args, **kwargs):
-		super(User, self).save(*args, **kwargs)
+		super(Profile, self).save(*args, **kwargs)
 
 class coursePar(models.Model):
 	course = models.OneToOneField(Course)
@@ -78,9 +74,13 @@ class coursePar(models.Model):
 	hole16 = models.IntegerField(blank=True, null=True)
 	hole17 = models.IntegerField(blank=True, null=True)
 	hole18 = models.IntegerField(blank=True, null=True)
-
+	
+	def parTotal(self):
+		return self.hole1+hole2+hole3+hole4+hole5+hole6+hole7+hole8+hole9+hole10+hole11+hole12+hole13+hole14+hole15+hole16+hole17+hole18
+	
 	class Meta(object):
 		verbose_name_plural = "coursePars"
+	
 	def __unicode__(self): 
 		return self.name
 	
@@ -89,7 +89,6 @@ class coursePar(models.Model):
 
 class Scorecard(models.Model):
 	user = models.ForeignKey(User)
-	coursePar = models.ForeignKey(coursePar)
 	course = models.ForeignKey(Course)
 	date = models.DateField(null=True, blank=True)
 	userHole1 = models.IntegerField(blank=True, null=True)
@@ -111,9 +110,14 @@ class Scorecard(models.Model):
 	userHole17 = models.IntegerField(blank=True, null=True)
 	userHole18 = models.IntegerField(blank=True, null=True)
 
+	def userTotal(self):
+		return self.userHole1+userHole2+userHole3+userHole4+userHole5+userHole6+userHole7+userHole8+userHole9+userHole10+userHole11+userHole12+userHole13+userHole14+userHole15+userHole16+userHole17+userHole18
+	
 	class Meta(object):
 		verbose_name_plural = "Scorecards"
+	
 	def __unicode__(self):
 		return self.name
+	
 	def save(self, *args, **kwargs):
 		super(Scorecard, self).save(*args, **kwargs)

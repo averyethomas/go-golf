@@ -1,3 +1,11 @@
 from django.contrib import admin
+from golfApp.models import Course, coursePar, Profile, Scorecard
 
-# Register your models here.
+
+admin.site.register(Course)
+
+admin.site.register(coursePar)
+
+admin.site.register(Profile)
+
+admin.site.register(Scorecard)
