@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="CourseList" class="col-x">
+      <h3>all courses</h3>
+      
+      {%for course in courses%}
+      
+
+        <div class="col-xs-12">
+        <h4>{{ course.name }}</h4>
+        <p>{{ course.address }} | {{course.phone }}</p>
+        </div>
+      </div>
+     
+      
+      {% endfor %}
+</div>
+
+{% endblock %}
+
+
+{# url 'golfApp_course' course.id % #}

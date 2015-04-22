@@ -3,10 +3,6 @@ from django.core.exceptions import ValidationError
 from golfApp import models
 from models import Course, Scorecard, Profile
 
-class login (forms.ModelForm):
-	class Meta:
-	      model = models.User
-
 class signup (forms.ModelForm):
 	class Meta:
 	      model = models.User
@@ -25,3 +21,6 @@ class createScorecard (forms.ModelForm):
 		model = Scorecard
 		fields = ['date','userHole1','userHole2','userHole3','userHole4','userHole5','userHole6','userHole7','userHole8','userHole9','userHole10','userHole11','userHole12','userHole13','userHole14','userHole15','userHole16','userHole17','userHole18',]
 
+class createProfile (forms.Form):
+	Username = forms.CharField(max_length=50)
+	Password = forms.CharField()

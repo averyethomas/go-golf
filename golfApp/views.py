@@ -7,21 +7,30 @@ from django.core.urlresolvers import reverse
 from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
+from django.core.serializers.json import Serializer
+
 from datetime import datetime
 import json
+from geopy import GoogleV3
+
+serializer = Serializer()
 
 def home(request):
+	print request.user
 	return render(request, "golfApp/home.html")
 
 #Courses Based on Location:
 
-def locate(request):
-	return
 
 #Course Related:
 
 def courseList(request):
-	athlete_list = Course.objects.all()
+	course_list = Course.objects.all()
+	courses_json = serializer.serialize(course_list)
+	return render(request, 'golfApp/course-list.html', {
+		'courses': course_list,
+		'courses_json': courses_json,
+	})
 	
 def course(request, pk):
 	course = get_object_or_404(Course, id=pk)
@@ -33,12 +42,11 @@ def formCourse(request):
 		
 		if form.is_valid():
 			address = form.cleaned_data['address']
-			latlon = Geocoder.geocode(address)
 			form = form.save(commit=False)
-			coords = Geocoder.geocode(address)
-			coords = coords[0].coordinates
-			lat = coords[0]
-			lon = coords[1]
+			google = GoogleV3()
+			coords = google.geocode(address)
+			lat = coords.latitude
+			lon = coords.longitude
 			latlon = str(lat)+","+str(lon)
 			form.latlon = latlon
 			form.save()
@@ -49,33 +57,38 @@ def formCourse(request):
 	args.update(csrf(request))
 
 	args['form'] = form
-	return render(request, 'golfApp/add_course.html', args)
+	return render(request, 'golfApp/add-course.html', args)
 
 
 #User/Profile Related:
 
 def userLogin(request):
-	c = {}
-	c.update(csrf(request))
-	return render_to_response(reverse('userLogin'), c)
 	
-
-def auth_view(request):
-	username = request.POST.get('username','')
-	password = request.POST.get('password','')
-	user = auth.authenticate(username=username, password=password)
+	failedlogin = False
+	if request.method =='POST':
+		username = request.POST.get('username','')
+		password = request.POST.get('password','')
+		user = auth.authenticate(username=username, password=password)
 	
-	if user is not None:
-		auth.login(request, user)
-		return HttpResponseRedirect(revers('userLoggedin'))
-	else:
-		return HttpResponseRedirect(reverse('invalid_login'))
+		if user is not None:
+			auth.login(request, user)
+			return HttpResponseRedirect(reverse('home'))
+		else:
+			failedlogin = True
+			
+		
+	return render (request, "golfApp/user-login.html", {"failedlogin":failedlogin})
 
 def userLogout(request):
-	return render_to_response("golfApp/user_logout.html")
+	
+	auth.logout(request)
+	
+	return HttpResponseRedirect(reverse('home'))
+
+
 
 def userSignUp(request):
-	return render (request, "golfApp/userSignUp.html")
+	return render (request, "golfApp/user-register.html")
 
 def register_user(request):
 	if request.method == 'POST':
@@ -100,12 +113,11 @@ def profile(request, pk):
 #Static Content:
 
 def games(request):
-        return render (request, "golfApp/games.html")
+        return render (request, "golfApp/other-games.html")
 
 def rules(request):
         return render (request, "golfApp/rules.html")
 
-def userLogin(request):
-	return render (request, "golfApp/user_login.html")
+
 	
 

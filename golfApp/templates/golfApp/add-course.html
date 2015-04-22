@@ -2,30 +2,75 @@
 
 {% block content %}
     
-    {% if form.errors %}
-        <p>Sorry, that is not a valid username or password.</p>
-    {% endif %}
-
 <div class="row">
-    <div class="col-lg-12">
-        <center>
-            
-       <h3>Add A Course</h3>
-       <form style="padding-top: 250px;" action="/golfApp/auth/" method="post" id="login">
-            
+<div class="col-xs-12">
+    <div class="container">
+        <h3>add a course</h3>
+        
+        <form action="" method="post">
         {% csrf_token %}
-        <div style="padding-bottom:20px;" class="login-form">
-            <input type="text" name="username" value="" id="username" placeholder=" username">
+        
+        <div class="col-xs-12">
+        {{ form.as_p }}
         </div>
-        <div style="padding-bottom:20px;" class="login-form">
-            <input type="password" name="password" value="" id="password" placeholder=" password">
-         </div>
-        <div class="login-form">
-            <input type="submit" class="btn btn-default" id="courseButton" values="Login">
+    
+    <!--
+        <div class="col-xs-12">
+            <label>*denotes required field</label>
+            <textarea cols="40" id="id_name" name="name" rows="1" style="border:0px;" placeholder="name*"></textarea>
         </div>
-    </form>
-       
-    </center> 
+        <div class="col-xs-12">
+            <textarea cols="40" name="address" rows="1" style="border:0px;" placeholder="street, city, state zip*"></textarea>
+        </div>
+        <div class="col-xs-12">
+            <textarea cols="40" name="phone" rows="1" style="border:0px;" placeholder="XXX-XXX-XXXX*"></textarea>
+        </div>
+        <div class="col-xs-12">
+            <textarea cols="40" name="site" rows="1" style="border:0px;" placeholder="website*"></textarea>
+        </div>
+        <div class="col-xs-12">
+            <textarea cols="40" name="MtoTPrice" rows="1" style="border:0px;" placeholder="Weekday Price*"></textarea>
+        </div>
+        <div class="col-xs-12 offset2">
+            <textarea cols="40" name="MtoSPrice" rows="1" style="border:0px;" placeholder="Weekend Price*"></textarea>
+        </div>
+        
+        <div class="col-xs-12">
+            <h4>features</h4>
+                <p class="checkbox"><input id="id_Public" name="Public" type="checkbox" /><label for="id_Public"><span></span>Public</label></p>
+                <p class="checkbox"><input id="id_Private" name="Private" type="checkbox" /><label for="id_Private"><span></span>Private</label></p>
+                <p class="checkbox"><input id="id_EighteenHolePlay" name="EighteenHolePlay" type="checkbox" /><label for="id_EighteenHolePlay"><span></span>18 Hole Play</label></p>
+                <p class="checkbox"><input id="id_NineHolePlay" name="NineHolePlay" type="checkbox" /><label for="id_NineHolePlay"><span></span>9 Hole Play</label> </p>
+                <p class="checkbox"><input id="id_DrivingRange" name="DrivingRange" type="checkbox" /><label for="id_DrivingRange"><span></span>Driving Range</label></p>
+                <p class="checkbox"><input id="id_ParThree" name="ParThree" type="checkbox" /><label for="id_ParThree"><span></span>Par 3 Course</label></p>
+                <p class="checkbox"><input id="id_WaterHazards" name="WaterHazards" type="checkbox" /><label for="id_WaterHazards"><span></span>Water Hazards</label></p>
+                <p class="checkbox"><input id="id_Bunkers" name="Bunkers" type="checkbox" /><label for="id_Bunkers"><span></span>Bunkers</label></p>
+                <p class="checkbox"><input id="id_PuttingGreen" name="PuttingGreen" type="checkbox" /><label for="id_PuttingGreen"><span></span>Putting Green</label></p>
+                <p class="checkbox"><input id="id_ClubRental" name="ClubRental" type="checkbox" /><label for="id_ClubRental"><span></span>Club Rentals</label></p>
+                <p class="checkbox"><input id="id_Lessons" name="Lessons" type="checkbox" /><label for="id_Lessons"><span></span>Lessons</label></p>
+                <p class="checkbox"><input id="id_ProShop" name="ProShop" type="checkbox" /><label for="id_ProShop"><span></span>Pro Shop</label></p>
+                <p class="checkbox"><input id="id_Restaurant" name="Restaurant" type="checkbox" /><label for="id_Restaurant"><span></span>Restaurant</label></p>
+                <p class="checkbox"><input id="id_MiniGolf" name="MiniGolf" type="checkbox" /><label for="id_MiniGolf"><span></span>Mini Golf</label></p>
+                <p class="checkbox"><input id="id_CaddieHire" name="CaddieHire" type="checkbox" /><label for="id_CaddieHire"><span></span>Caddies For Hire</label> </p>
+                <p class="checkbox"><input id="id_LockerRoom" name="LockerRoom" type="checkbox" /><label for="id_LockerRoom"><span></span>Locker Room</label></p>
+        </div>
+        
+    -->
+    
+    <div style="padding: 30px;" class="col-xs-12">
+        <center>
+        <input type="submit" name="submit" class="btn btn-default suggest-submit" value="add course" id="courseButton">
+        </center>
+    </div>
+    </div>
+
+</div>
+      
+<script>
+    function geoCoder() {
+        $("#id_address").geocomplete();
+    }
+</script>
        
     </div>
 </div>

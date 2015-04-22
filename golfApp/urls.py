@@ -10,15 +10,16 @@ urlpatterns = patterns('',
     #url(r'^locate$', views.locate, name='locate'),
     
     # Course Related:
-    #url(r'^courses$', views.courseList, name='courseList'),
+    url(r'^courses$', views.courseList, name='course-list'),
     #url(r'^courses/(?P,<pk>\d+)$', views.course, name='course'),
-    url(r'^courses/add-course$', views.formCourse, name='form_course'),
+    url(r'^courses/add-course$', views.formCourse, name='add-course'),
     
     #Profile Related: 
     
     #url(r'^users/(?P<pk>\d+)$', views.userProfile, name='userProfile'),
     #url(r'^user-signup$', views.userSignUp, name='userSignUp'),
-    url(r'^user-login$', views.userLogin, name='userLogin'),
+    url(r'^user-login$', views.userLogin, name='user-login'),
+    url(r'^user-logout$', views.userLogout, name='user-logout'),
     #url(r'^friends$', views.profileList, name='profileList'),
     
     #Scorecard Related: 
@@ -30,6 +31,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     #Static Pages:
-    #url(r'^rules$', views.rules, name='rules'),
-    #url(r'^more-games$', views.games, name='games'),
+    url(r'^rules$', views.rules, name='rules'),
+    url(r'^more-games$', views.games, name='more-games'),
 )
