@@ -9,8 +9,13 @@
       
 
         <div class="col-xs-12">
+        
+        <div class="courseList">
+        <a href="{% url 'course' course.id %}">
         <h4>{{ course.name }}</h4>
         <p>{{ course.address }} | {{course.phone }}</p>
+        </a>
+        </div>
         </div>
       </div>
      

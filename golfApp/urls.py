@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     
     # Course Related:
     url(r'^courses$', views.courseList, name='course-list'),
-    #url(r'^courses/(?P,<pk>\d+)$', views.course, name='course'),
+    url(r'^courses/(?P<pk>\d+)$', views.course, name='course'),
     url(r'^courses/add-course$', views.formCourse, name='add-course'),
     
     #Profile Related: 

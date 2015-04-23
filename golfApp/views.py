@@ -34,7 +34,7 @@ def courseList(request):
 	
 def course(request, pk):
 	course = get_object_or_404(Course, id=pk)
-	return render(request, 'golfApp/course.html', {'course': course})
+	return render(request, 'golfApp/course-profile.html', {'course': course})
 
 def formCourse(request):
 	if request.POST:
@@ -85,8 +85,6 @@ def userLogout(request):
 	
 	return HttpResponseRedirect(reverse('home'))
 
-
-
 def userSignUp(request):
 	return render (request, "golfApp/user-register.html")
 
@@ -102,11 +100,13 @@ def register_user(request):
 	
 	return render_to_response('golfApp/register.html', args)
 
-def register_success(request):
-	return render_to_response('golfApp/regester_success.html')
+
 
 def profile(request, pk):
-	profile = get_object_or_404(Profile, id=pk)
+	username = None
+	if request.user.is_authenticated():
+		username = request.user.username
+	
 	return render(request, 'golfApp/profile.html', {'profile': profile})
 
 

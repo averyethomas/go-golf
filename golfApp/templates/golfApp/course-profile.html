@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="row">
+<div class="col-xs-12"> 
+    <h3 style="color: #C6C803"> {{ course.name }} </h3>
+    
+        <p>{{ course.address }} | {{ course.phone }}</p>
+        <p><a href="{{ course.site }}">{{ course.site }}</p></a>
+            
+        
+</div>
+</div>
+
+
+   
+
+{% endblock %}
