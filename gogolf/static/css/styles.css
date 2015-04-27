@@ -164,3 +164,22 @@ h6{
 .login-form{
     color: #161809
 }
+
+a{
+    text-decoration: none;
+    color: #C6C803;
+}
+
+.courseList a:hover{
+    text-decoration: none;
+}
+
+a:hover{
+    color: #C6C803;
+}
+hr{
+    border: 0;
+    height: 0;
+    border-top: 1px solid #C6C803;
+    border-bottom: 1px solid #C6C803;
+}

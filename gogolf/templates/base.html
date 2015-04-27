@@ -29,7 +29,7 @@
       <a href="#">Profile</a>
     </li>
     <li>
-      <a href="{% url 'courses' %}">Courses</a>
+      <a href="{% url 'course-list' %}">Courses</a>
     </li>
     <li>
       <a href="{% url 'add-course' %}">Add Course</a>
@@ -62,7 +62,7 @@
   <div class="nav-bar">
     <div class="nav-bar-content">
       <img src="{% static 'css/images/menu.png' %}" href="#menu-toggle" id="menu-toggle" style="height:50px;">
-      <h4 style="float: right">go golf</h4>
+      <a href="{% url 'home' %}"><h4 style="float: right">go golf</h4></a>
     </div>
   </div>
   <div class="container-fluid">

@@ -2,25 +2,20 @@
 
 {% block content %}
 
-<div id="CourseList" class="col-x">
-      <h3>all courses</h3>
-      
-      {%for course in courses%}
-      
-
+<div id="CourseList" class="col-x"> 
+    <h3>all courses</h3>
+    {%for course in courses%}
         <div class="col-xs-12">
-        
-        <div class="courseList">
-        <a href="{% url 'course' course.id %}">
-        <h4>{{ course.name }}</h4>
-        <p>{{ course.address }} | {{course.phone }}</p>
-        </a>
-        </div>
-        </div>
-      </div>
-     
-      
-      {% endfor %}
+            <div class="courseList">
+            <a href="{% url 'course' course.id %}">
+                <div>
+                    <h4>{{ course.name }}</h4>
+                    <h6 style="font-size:1.5em; color:#FBF5F5;">{{ course.address }} <b>|</b> {{course.phone }}</h6>
+                </div>
+            </a>
+            </div>
+        </div> 
+    {% endfor %}
 </div>
 
 {% endblock %}

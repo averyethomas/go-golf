@@ -6,13 +6,148 @@
 <div class="row">
 <div class="col-xs-12"> 
     <h3 style="color: #C6C803"> {{ course.name }} </h3>
+    <div>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ course.address }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ course.phone }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.4em;"><a href="{{ course.site }}">{{ course.site }}</h6></a>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.4em;">Weekday Price: {{ course.MtoTprice }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.4em;">Weekday Price: {{ course.FtoSprice }}</h6>
+    </div>
+</div>
+
+<div class="row" style="padding-bottom: 30px;">
+    <div class="col-xs-12">
+        <h4>Features</h4>
+    </div>
     
-        <p>{{ course.address }} | {{ course.phone }}</p>
-        <p><a href="{{ course.site }}">{{ course.site }}</p></a>
-            
-        
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Public: {{ course.Public }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Private: {{ course.Private }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">18 Hole Play: {{ course.EighteenHolePlay }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">9 Hole Play: {{ course.NineHolePlay }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Driving Range: {{ course.DrivingRange }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Putting Green: {{ course.PuttingGreen }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Par 3 Course: {{ course.ParThree }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Mini Golf: {{ course.MiniGolf }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Water Hazards: {{ course.WaterHazards }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Bunkers: {{ course.Bunkers }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Pro Shop: {{ course.ProShop }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Lessons: {{ course.Lessons }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Club Rental: {{ course.ClubRental }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Caddies Available: {{ course.CaddieHire}}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Locker Room: {{ course.LockerRoom }}</h6>
+    </div>
+    <div class="col-xs-6">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Restaurant: {{ course.Restaurant }}</h6>
+    </div>
 </div>
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Scoring Info</h4>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 2: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 3: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 4: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 5: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 6: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 7: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 8: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 9: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-12">
+        <center>
+        <h6 style="color: #C6C803; font-size:1.2em;">9 Hole Total: {{ course.coursePar.hole1 }}</h6>
+        </center>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1: Par{{ course.coursePar.hole1 }}</h6>
+    </div>
+    <hr>
+    <div class="col-xs-12">
+        <center>
+        <h6 style="color: #C6C803; font-size:1.2em;">18 Hole Total: {{ course.coursePar.hole1 }}</h6>
+        </center>
+    </div>
 </div>
+    
 
 
    
