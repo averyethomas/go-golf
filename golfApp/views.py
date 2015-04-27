@@ -15,9 +15,21 @@ from geopy import GoogleV3
 
 serializer = Serializer()
 
+def filter(request):
+	f = courseFilter(request.GET, queryset=Course.objects.all())
+	return render_to_response('golfApp/map.html',{'filter': f})
+
+
 def home(request):
 	print request.user
-	return render(request, "golfApp/home.html")
+	return render(request, 'golfApp/home.html')
+
+def locate(request):
+	courses = Course.objects.all()
+	context = {
+		'courses' : courses
+	}
+	return render (request, "golfApp/map.html", context)
 
 #Courses Based on Location:
 
