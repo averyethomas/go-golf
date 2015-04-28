@@ -91,7 +91,7 @@ class coursePar(models.Model):
 		verbose_name_plural = "coursePars"
 	
 	def __unicode__(self): 
-		return unicode (self.id)
+		return unicode (self.course.name)
 	
 	def save(self, *args, **kwargs):
 		super(coursePar, self).save(*args, **kwargs)
