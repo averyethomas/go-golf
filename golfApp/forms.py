@@ -14,7 +14,7 @@ class locate (forms.ModelForm):
 class createCourse (forms.ModelForm):
        class Meta:
               model = Course
-              fields = ['name', 'address', 'MtoTprice', 'FtoSprice', 'site', 'phone', 'courseType', 'architect', 'backTees', 'backPar', 'backSlope', 'DrivingRange', 'Public', 'Private', 'Lessons', 'ClubRental', 'PuttingGreen', 'LockerRoom', 'CaddieHire', 'ProShop', 'Restaurant', 'WaterHazards', 'Bunkers', 'ParThree', 'MiniGolf', 'NineHolePlay', 'EighteenHolePlay',]
+              fields = ['name', 'address', 'MtoTprice', 'FtoSprice', 'site', 'image', 'phone', 'courseType', 'architect', 'backTees', 'backPar', 'backSlope', 'DrivingRange', 'Public', 'Private', 'Lessons', 'ClubRental', 'PuttingGreen', 'LockerRoom', 'CaddieHire', 'ProShop', 'Restaurant', 'WaterHazards', 'Bunkers', 'ParThree', 'MiniGolf', 'NineHolePlay', 'EighteenHolePlay',]
 
 class createScorecard (forms.ModelForm):
 	class Meta:
