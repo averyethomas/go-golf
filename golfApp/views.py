@@ -8,6 +8,7 @@ from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.core.serializers.json import Serializer
+import ipdb
 
 from datetime import datetime
 import json
@@ -45,7 +46,7 @@ def courseList(request):
 	})
 	
 def course(request, pk):
-	course = get_object_or_404(Course, id=pk)
+	course = get_object_or_404(Course, id=pk)	
 	return render(request, 'golfApp/course-profile.html', {'course': course})
 
 def formCourse(request):
