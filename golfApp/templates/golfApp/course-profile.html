@@ -4,7 +4,9 @@
 {% block content %}
 
 <div class="row">
-<div> <img src="{{ course.image.url }}"> </div>
+    {% if course.image %}
+        <div> <img src="{{ course.image.url }}"> </div>
+    {% endif %}
 <div class="col-xs-12"> 
     <h3 style="color: #C6C803"> {{ course.name }} </h3>
     <div>
