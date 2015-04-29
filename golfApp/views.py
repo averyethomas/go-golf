@@ -8,7 +8,6 @@ from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.core.serializers.json import Serializer
-import ipdb
 
 from datetime import datetime
 import json
