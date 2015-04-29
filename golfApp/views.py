@@ -45,7 +45,7 @@ def courseList(request):
 	})
 	
 def course(request, pk):
-	course = get_object_or_404(Course, id=pk)
+	course = get_object_or_404(Course, id=pk)	
 	return render(request, 'golfApp/course-profile.html', {'course': course})
 
 def formCourse(request):

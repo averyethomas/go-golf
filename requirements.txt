@@ -1,5 +1,8 @@
 Django==1.7
 geopy==1.10.0
+gnureadline==6.3.3
+ipdb==0.8
+ipython==3.1.0
 Pillow==2.8.1
 pygeocoder==1.2.5
 requests==2.6.0

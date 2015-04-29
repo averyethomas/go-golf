@@ -10,6 +10,7 @@ class Course(models.Model):
 	MtoTprice = models.CharField('Weekday Price', max_length=50)
 	FtoSprice = models.CharField('Weekend Price',max_length=50)
 	site = models.CharField('Website',max_length=50)
+	image = models.ImageField('Image', blank=True, null=True)
 	phone = models.CharField(max_length=50, null=True)
 	courseType = models.CharField(max_length=50, null=True)
 	architect = models.CharField(max_length=50, null=True)
@@ -90,7 +91,7 @@ class coursePar(models.Model):
 		verbose_name_plural = "coursePars"
 	
 	def __unicode__(self): 
-		return unicode (self.id)
+		return unicode (self.course.name)
 	
 	def save(self, *args, **kwargs):
 		super(coursePar, self).save(*args, **kwargs)
