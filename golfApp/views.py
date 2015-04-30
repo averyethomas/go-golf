@@ -103,7 +103,6 @@ def userSignUp(request):
 def register(request):
 	context = RequestContext(request)
 	registered = False
-	
 	if request.method == 'POST':
 		user_form = UserForm(data=request.POST)
 		profile_form = UserProfileForm(data=request.POST)

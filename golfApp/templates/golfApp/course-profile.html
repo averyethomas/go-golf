@@ -4,10 +4,10 @@
 {% block content %}
 
 <div class="row">
-    <div> <img src="{{ course.image.url }}" style="width: 100%; z-index: -5"> </div>
-
-<div class="col-xs-12">
-
+    {% if course.image %}
+        <div> <img src="{{ course.image.url }}" style="width: 100%;"> </div>
+    {% endif %}
+<div class="col-xs-12"> 
     <h3 style="color: #C6C803"> {{ course.name }} </h3>
     <div>
         <h6 style="color: #FBF5F5; font-size:1.4em;">{{ course.address }}</h6>

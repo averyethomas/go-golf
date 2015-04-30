@@ -1,18 +1,19 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from golfApp import models
-from models import Course, Scorecard, Profile
+from models import Course, Scorecard, Profile, User
 
 class UserForm (forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
 	
 	class Meta:
-	      model = UserFormfields=('username', 'password')
+	      model = User
+	      fields=('username', 'password')
 
 class UserProfileForm(forms.ModelForm):
 	class Meta:
 		model = Profile
-		fields = ('firstname', 'lastname' 'email', 'phone', 'birthdate', 'hometown', 'state', 'avatar')	
+		fields = ('firstName', 'lastName', 'email', 'phone', 'birthdate', 'hometown', 'state', 'avatar')	
 
 class locate (forms.ModelForm):
 	class Meta:
