@@ -26,7 +26,7 @@ urlpatterns = patterns('',
     #Scorecard Related: 
     url(r'^scorecards$', views.scorecardsList, name='scorecardsList'),
     url(r'^scorecards/(?P<pk>\d+)$', views.scorecard, name='scorecard'),
-    #url(r'^scorecards/add-scorecard$', views.formScorecard, name='form_scorecard'),
+    url(r'^scorecards/add-scorecard$', views.formScorecard, name='form_scorecard'),
     
     #Admin:
     url(r'^admin/', include(admin.site.urls)),

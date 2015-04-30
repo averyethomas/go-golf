@@ -94,40 +94,18 @@ def userLogout(request):
 	
 	return HttpResponseRedirect(reverse('home'))
 
-def userSignUp(request):
-	
-	return render (request, "golfApp/user-register.html")
-
 def register(request):
 	if request.method == 'POST':
-		user_form = UserForm(data=request.POST)
-		profile_form = UserProfileForm(data=request.POST)
-		
-		if user_form.is_valid() and profile_form.is_valid():
-			user = user_form.save()
-			user.set_password(user.password)
-			user.save()
-			profile = profile_form.save(commit=False)
-			profile.user = user
-			
-			if 'avatar' in request.FILES:
-				profile.picture = request.FILES['avatar']
-				
-			profile.save()
-		else:
-			print user_form.errors, profile_form.errors
-	else:
-		user_form = UserForm()
-		profile_form = UserProfileForm()
-		
-	return render_to_response(
-		'golfApp/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registerd': regsitered}, context)
+		form = UserCreationForm(request.POST)	
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('userLogin')
 
-def profile(request, pk):
-	current_user = request.user
-	print current_user.id
-	
-	return render(request, 'golfApp/profile.html', {'profile': profile})
+		args = {}
+		args.update(csrf(request))
+		args['form'] = UserCreationForm()
+		
+		return render_to_response('golfApp/register.html', args)
 
 
 #Static Content: 
@@ -156,3 +134,18 @@ def scorecardsList(request):
 def scorecard(request, pk):
 	scorecard = get_object_or_404(Scorecard, id=pk)	
 	return render(request, 'golfApp/scorecard.html', {'scorecard': scorecard})
+
+def formScorecard(request):
+	if request.POST:
+		form = createScorecard(request.POST)
+		
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect(reverse('scorecardsList'))
+	else:
+		form = createScorecard()
+	args = {}
+	args.update(csrf(request))
+
+	args['form'] = form
+	return render(request, 'golfApp/add-scorecard.html', args)

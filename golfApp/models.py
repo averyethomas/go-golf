@@ -119,11 +119,6 @@ class Scorecard(models.Model):
 	userHole17 = models.IntegerField(blank=True, null=True)
 	userHole18 = models.IntegerField(blank=True, null=True)
 
-	def userTotal(self):
-		return self.userHole1+userHole2+userHole3+userHole4+userHole5+userHole6+userHole7+userHole8+userHole9+userHole10+userHole11+userHole12+userHole13+userHole14+userHole15+userHole16+userHole17+userHole18
-
-	def userTotalNine(self):
-		return self.userHole1+userHole2+userHole3+userHole4+userHole5+userHole6+userHole7+userHole8+userHole9	
 
 	class Meta(object):
 		verbose_name_plural = "Scorecards"
@@ -132,4 +127,4 @@ class Scorecard(models.Model):
 		return unicode (self.date)
 	
 	def save(self, *args, **kwargs):
-		super(S, self).save(*args, **kwargs)
+		super(Scorecard, self).save(*args, **kwargs)

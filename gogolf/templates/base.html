@@ -24,34 +24,31 @@
     <li>
       <a href="{% url 'home' %}">Home</a>
     </li>
-    <!---<li>
-      <a href="#">Profile</a>
-    </li>-->
+    <!-- Removed
     <li>
-      <a href="#">Scorecards</a>
+      <a href="#">Profile</a>
+    </li>
+    -->
+    <li>
+      <a href="{% url 'locate' %}">Find Courses</a>
     </li>
     <li>
       <a href="{% url 'course-list' %}">Courses</a>
     </li>
     <li>
-      <a href="{% url 'locate' %}">Find Courses</a>
-    </li>
-    <li>
       <a href="{% url 'add-course' %}">Add Course</a>
     </li>
-
-<!--removed
     <li>
-      <a href="#">Start Game</a>
+      <a href="{% url 'scorecardsList' %}">Scorecards</a>
     </li>
--->
-   
-<!--removed
+    <li>
+	<a href="{% url 'form_scorecard' %}">Add Scorecard</a>
+    </li>
+    <!-- removed
     <li>
       <a href="{% url 'rules' %}">Rules</a>
     </li>
--->
-
+    -->
     <li>
       <a href="{% url 'more-games' %}">More Games</a>
     </li>

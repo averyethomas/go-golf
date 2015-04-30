@@ -27,5 +27,5 @@ class createCourse (forms.ModelForm):
 class createScorecard (forms.ModelForm):
 	class Meta:
 		model = Scorecard
-		fields = ['date','userHole1','userHole2','userHole3','userHole4','userHole5','userHole6','userHole7','userHole8','userHole9','userHole10','userHole11','userHole12','userHole13','userHole14','userHole15','userHole16','userHole17','userHole18',]
+		fields = ['user', 'course', 'date','userHole1','userHole2','userHole3','userHole4','userHole5','userHole6','userHole7','userHole8','userHole9','userHole10','userHole11','userHole12','userHole13','userHole14','userHole15','userHole16','userHole17','userHole18',]
 
