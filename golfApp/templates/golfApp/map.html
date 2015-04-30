@@ -29,11 +29,11 @@
           zoom: 6
       };
       var styles = {
-      center: "latlng",
-      featureType: "road",
-      featureType: "poi.business",
+        center: "latlng",
+        featureType: "all",
+        elementType: "labels.text.fill"
       };
-      styles:
+
     
       map = new google.maps.Map(document.getElementById('map-canvas'),
           mapOptions);
@@ -126,11 +126,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 </head>
 <body onkeydown="showKeyCode(event);"> 
-    <div id="panel">
+<h4>Find Courses Near You</h4>
+    <!--<div id="panel">
       <input id="address" type="textbox" value="">
       <input type="button" value="Go!" onclick="codeAddress()"  >
+    </div>-->
+    <div id="map-canvas" style="height: 400px">
     </div>
-    <div id="map-canvas" style="height: 600px"></div>
 </body>
 
 {% endblock %}
