@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, render_to_resp
 from django.http import HttpResponseRedirect
 from golfApp.models import Course, coursePar, Profile, Scorecard
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from golfApp.forms import createCourse, createScorecard, locate, UserForm, UserProfileForm
+from golfApp.forms import createCourse, createScorecard, locate
 from django.core.urlresolvers import reverse
 from django.core.context_processors import csrf
 from django.contrib import auth
@@ -112,9 +112,6 @@ def register(request):
 
 def games(request):
         return render (request, "golfApp/other-games.html")
-
-def rules(request):
-        return render (request, "golfApp/rules.html")
 
 #Scorecard Related:
 

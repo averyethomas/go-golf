@@ -3,11 +3,8 @@ from django.contrib import admin
 from golfApp import views
 
 urlpatterns = patterns('',
-    # Examples:
+    # Home:
     url(r'^$', views.home, name='home'),
-    
-    # Gets User Location and List Courses: 
-    #url(r'^locate$', views.locate, name='locate'),
     
     # Course Related:
     url(r'^courses$', views.courseList, name='course-list'),
@@ -17,11 +14,9 @@ urlpatterns = patterns('',
     
     #Profile Related: 
     
-    #url(r'^users/(?P<pk>\d+)$', views.userProfile, name='userProfile'),
-    url(r'^register$', views.register, name='register'),
+    #url(r'^register$', views.register, name='register'),
     url(r'^user-login$', views.userLogin, name='user-login'),
     url(r'^user-logout$', views.userLogout, name='user-logout'),
-    #url(r'^friends$', views.profileList, name='profileList'),
     
     #Scorecard Related: 
     url(r'^scorecards$', views.scorecardsList, name='scorecardsList'),
@@ -32,6 +27,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     #Static Pages:
-    url(r'^rules$', views.rules, name='rules'),
     url(r'^more-games$', views.games, name='more-games'),
 )
