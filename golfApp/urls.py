@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^user-logout$', views.userLogout, name='user-logout'),
     
     #Scorecard Related: 
-    url(r'^scorecards$', views.scorecardsList, name='scorecardsList'),
+    url(r'^scorecards$', views.scorecards_list, name='scorecards-list'),
     url(r'^scorecards/(?P<pk>\d+)$', views.scorecard, name='scorecard'),
     url(r'^scorecards/add-scorecard$', views.formScorecard, name='form_scorecard'),
     

@@ -115,18 +115,13 @@ def games(request):
 
 #Scorecard Related:
 
-def scorecardsList(request):
-	
-	if request.user.is_authenticated():
-		scorecards = Scorecard.objects.filter(user=request.user)
-
-		
-	else:
-		return HttpResponseRedirect(reverse('userLogin'))
-	
-
-	
-	return render(request, 'golfApp/scorecards-list.html', {'scorecardsList': scorecardsList})
+def scorecards_list(request):
+	scorecards_list = Scorecard.objects.all()
+	scorecards_json = serializer.serialize(scorecards_list)
+	return render(request, 'golfApp/scorecards-list.html', {
+		'scorecards': scorecards_list,
+		'scorecards_json': scorecards_json,
+	})
 
 def scorecard(request, pk):
 	scorecard = get_object_or_404(Scorecard, id=pk)	
