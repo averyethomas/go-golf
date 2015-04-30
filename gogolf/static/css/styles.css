@@ -4,7 +4,7 @@ body{
     font-family: helvetica, arial, sans-serif;
     color: #FBF5F5;
     overflow-x: hidden;
-    background: url(images/background.png) no-repeat center center fixed; 
+    background: url(images/darkBackground.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -162,7 +162,7 @@ h6{
 }
 
 .login-form{
-    color: #161809
+    color: #161809;
 }
 
 input {
@@ -186,4 +186,8 @@ hr{
     height: 0;
     border-top: 1px solid #C6C803;
     border-bottom: 1px solid #C6C803;
+}
+
+label {
+    width: 150px;
 }
