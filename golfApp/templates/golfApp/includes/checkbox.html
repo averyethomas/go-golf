@@ -1,0 +1,7 @@
+{% load staticfiles %}
+
+ {% if value %}
+        <img src="{% static 'img/checkmark.png' %}">
+        {% else %}
+        <img src="{% static 'img/x.png' %}">
+        {% endif %}

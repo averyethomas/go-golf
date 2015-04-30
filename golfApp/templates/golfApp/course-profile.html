@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 
 {% block content %}
@@ -32,52 +33,68 @@
     </div>
     
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Public: {{ course.Public }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Public: {% include "golfApp/includes/checkbox.html" with value=course.Public %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Private: {{ course.Private }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Private: {% include "golfApp/includes/checkbox.html" with value=course.Private %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">18 Hole Play: {{ course.EighteenHolePlay }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">18 Hole Play: {% include "golfApp/includes/checkbox.html" with value=course.EighteenHolePlay %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">9 Hole Play: {{ course.NineHolePlay }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">9 Hole Play: {% include "golfApp/includes/checkbox.html" with value=course.NineHolePlay %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Driving Range: {{ course.DrivingRange }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Driving Range: {% include "golfApp/includes/checkbox.html" with value=course.DrivingRange %}</h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Putting Green: {{ course.PuttingGreen }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Putting Green: {% include "golfApp/includes/checkbox.html" with value=course.PuttingGreen %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Par 3 Course: {{ course.ParThree }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Par 3 Course:  {% include "golfApp/includes/checkbox.html" with value=course.ParThree %} </h6>
+       
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Mini Golf: {{ course.MiniGolf }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Mini Golf:  {% include "golfApp/includes/checkbox.html" with value=course.MiniGolf %} </h6>
+       
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Water Hazards: {{ course.WaterHazards }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Water Hazards: {% include "golfApp/includes/checkbox.html" with value=course.WaterHazards %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Bunkers: {{ course.Bunkers }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Bunkers: {% include "golfApp/includes/checkbox.html" with value=course.Bunkers %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Pro Shop: {{ course.ProShop }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Pro Shop: {% include "golfApp/includes/checkbox.html" with value=course.ProShop %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Lessons: {{ course.Lessons }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Lessons: {% include "golfApp/includes/checkbox.html" with value=course.Lessons %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Club Rental: {{ course.ClubRental }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Club Rental: {% include "golfApp/includes/checkbox.html" with value=course.ClubRental %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Caddies Available: {{ course.CaddieHire}}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Caddies Available:  {% include "golfApp/includes/checkbox.html" with value=course.CaddieHire %} </h6>
+       
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Locker Room: {{ course.LockerRoom }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Locker Room: {% include "golfApp/includes/checkbox.html" with value=course.LockerRoom %} </h6>
+        
     </div>
     <div class="col-xs-6">
-        <h6 style="color: #FBF5F5; font-size:1.2em;">Restaurant: {{ course.Restaurant }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Restaurant: {% include "golfApp/includes/checkbox.html" with value=course.Restaurant %} </h6>
+        
     </div>
 </div>
 <div class="row">
