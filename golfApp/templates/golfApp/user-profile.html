@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="row">
+<div class="col-xs-4 col-md-4 col-lg-4">
+    {% if profile.avatar %}
+        <div> <img src="{{ profile.avatar.url }}" style="width: 100%;"> </div>
+    {% endif %}
+</div>
+<div class="col-xs-8 col-md-8 col-lg-8"> 
+    <h3 style="color: #C6C803"> {{ profile.firstName }}
+    <br>{{ profile.lastName }}</h3>
+</div>
+<div class="col-xs-12">
+    <div>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ profile.user }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ profile.birthdate }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ profile.hometown }}, {{ profile.state }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ profile.email }}</h6>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ profile.phone }}</h6>
+    </div>
+</div>
+</div>
+</div>
+{% else %}
+    <h6>Please log in.</h6>
+{% endif %}
+
+
+   
+
+{% endblock %}

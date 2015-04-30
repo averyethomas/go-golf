@@ -24,8 +24,8 @@ urlpatterns = patterns('',
     #url(r'^friends$', views.profileList, name='profileList'),
     
     #Scorecard Related: 
-    #url(r'^scorecards$', views.scorecardsList, name='scorecardsList'),
-    #url(r'^scorecards/(?P,<pk>\d+)$', views.scorecard, name='scorecard'),
+    url(r'^scorecards$', views.scorecardsList, name='scorecardsList'),
+    url(r'^scorecards/(?P<pk>\d+)$', views.scorecard, name='scorecard'),
     #url(r'^scorecards/add-scorecard$', views.formScorecard, name='form_scorecard'),
     
     #Admin:

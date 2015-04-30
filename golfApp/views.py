@@ -8,21 +8,17 @@ from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.core.serializers.json import Serializer
-
+from django.template import RequestContext
 from datetime import datetime
 import json
 from geopy import GoogleV3
-
 serializer = Serializer()
-
-def filter(request):
-	f = courseFilter(request.GET, queryset=Course.objects.all())
-	return render_to_response('golfApp/map.html',{'filter': f})
-
 
 def home(request):
 	print request.user
 	return render(request, 'golfApp/home.html')
+
+#Courses Based on Location:
 
 def locate(request):
 	courses = Course.objects.all()
@@ -31,8 +27,9 @@ def locate(request):
 	}
 	return render (request, "golfApp/map.html", context)
 
-#Courses Based on Location:
-
+def filter(request):
+	f = courseFilter(request.GET, queryset=Course.objects.all())
+	return render_to_response('golfApp/map.html',{'filter': f})
 
 #Course Related:
 
@@ -98,11 +95,10 @@ def userLogout(request):
 	return HttpResponseRedirect(reverse('home'))
 
 def userSignUp(request):
+	
 	return render (request, "golfApp/user-register.html")
 
 def register(request):
-	context = RequestContext(request)
-	registered = False
 	if request.method == 'POST':
 		user_form = UserForm(data=request.POST)
 		profile_form = UserProfileForm(data=request.POST)
@@ -118,24 +114,23 @@ def register(request):
 				profile.picture = request.FILES['avatar']
 				
 			profile.save()
-			
-			registered = True
 		else:
 			print user_form.errors, profile_form.errors
 	else:
 		user_form = UserForm()
 		profile_form = UserProfileForm()
 		
-	return render_to_respnse(
+	return render_to_response(
 		'golfApp/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registerd': regsitered}, context)
 
 def profile(request, pk):
-	profile = request.user.get_profile()
+	current_user = request.user
+	print current_user.id
 	
 	return render(request, 'golfApp/profile.html', {'profile': profile})
 
 
-#Static Content:
+#Static Content: 
 
 def games(request):
         return render (request, "golfApp/other-games.html")
@@ -143,6 +138,21 @@ def games(request):
 def rules(request):
         return render (request, "golfApp/rules.html")
 
+#Scorecard Related:
 
+def scorecardsList(request):
+	
+	if request.user.is_authenticated():
+		scorecards = Scorecard.objects.filter(user=request.user)
+
+		
+	else:
+		return HttpResponseRedirect(reverse('userLogin'))
 	
 
+	
+	return render(request, 'golfApp/scorecards-list.html', {'scorecardsList': scorecardsList})
+
+def scorecard(request, pk):
+	scorecard = get_object_or_404(Scorecard, id=pk)	
+	return render(request, 'golfApp/scorecard.html', {'scorecard': scorecard})

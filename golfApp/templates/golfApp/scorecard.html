@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<div class="row">
+<div class="col-xs-12"> 
+    <h3 style="color: #C6C803"> {{ scorecard.course }} </h3>
+    <div>
+        <h6 style="color: #FBF5F5; font-size:1.4em;">{{ scorecard.date }}</h6>
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 1 - {{ scorecard.userHole1 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 2 - {{ scorecard.userHole4 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 3 - {{ scorecard.userHole3 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 4 - {{ scorecard.userHole4 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 5 - {{ scorecard.userHole5 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 6 - {{ scorecard.userHole6 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 7 - {{ scorecard.userHole7 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 8 - {{ scorecard.userHole8 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 9 - {{ scorecard.userHole9 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 10 - {{ scorecard.userHole10 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 11 - {{ scorecard.userHole11 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 12 - {{ scorecard.userHole12 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 13 - {{ scorecard.userHole13 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 14 - Par{{ scorecard.userHole14 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 15 - Par{{ scorecard.userHole15 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 16 - Par{{ scorecard.userHole16 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 17 - Par{{ scorecard.userHole17 }}</h6>
+    </div>
+    <div class="col-xs-4">
+        <h6 style="color: #FBF5F5; font-size:1.2em;">Hole 18 - Par{{ scorecard.userHole18 }}</h6>
+    </div>
+    <hr>
+    <!--<div class="col-xs-12">
+        <center>
+        <h6 style="color: #C6C803; font-size:1.2em;">18 Hole Total - {{ scorecard.userTotal }}</h6>
+        </center>
+    </div>-->
+</div>
+    
+
+
+   
+
+{% endblock %}

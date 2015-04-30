@@ -129,7 +129,7 @@ class Scorecard(models.Model):
 		verbose_name_plural = "Scorecards"
 	
 	def __unicode__(self):
-		return unicode (self.id)
+		return unicode (self.date)
 	
 	def save(self, *args, **kwargs):
-		super(Scorecard, self).save(*args, **kwargs)
+		super(S, self).save(*args, **kwargs)
