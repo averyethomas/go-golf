@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     #Profile Related: 
     
     #url(r'^users/(?P<pk>\d+)$', views.userProfile, name='userProfile'),
-    #url(r'^user-signup$', views.userSignUp, name='userSignUp'),
+    url(r'^register$', views.register, name='register'),
     url(r'^user-login$', views.userLogin, name='user-login'),
     url(r'^user-logout$', views.userLogout, name='user-logout'),
     #url(r'^friends$', views.profileList, name='profileList'),

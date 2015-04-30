@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, render_to_resp
 from django.http import HttpResponseRedirect
 from golfApp.models import Course, coursePar, Profile, Scorecard
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from golfApp.forms import createCourse, createScorecard, locate
+from golfApp.forms import createCourse, createScorecard, locate, UserForm, UserProfileForm
 from django.core.urlresolvers import reverse
 from django.core.context_processors import csrf
 from django.contrib import auth
@@ -100,24 +100,38 @@ def userLogout(request):
 def userSignUp(request):
 	return render (request, "golfApp/user-register.html")
 
-def register_user(request):
-	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/golfApp/register_success')
-	args = {}
-	args.update(csrf(request))
-	args['form'] = UserCreationForm()
+def register(request):
+	context = RequestContext(request)
+	registered = False
 	
-	return render_to_response('golfApp/register.html', args)
-
-
+	if request.method == 'POST':
+		user_form = UserForm(data=request.POST)
+		profile_form = UserProfileForm(data=request.POST)
+		
+		if user_form.is_valid() and profile_form.is_valid():
+			user = user_form.save()
+			user.set_password(user.password)
+			user.save()
+			profile = profile_form.save(commit=False)
+			profile.user = user
+			
+			if 'avatar' in request.FILES:
+				profile.picture = request.FILES['avatar']
+				
+			profile.save()
+			
+			registered = True
+		else:
+			print user_form.errors, profile_form.errors
+	else:
+		user_form = UserForm()
+		profile_form = UserProfileForm()
+		
+	return render_to_respnse(
+		'golfApp/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registerd': regsitered}, context)
 
 def profile(request, pk):
-	username = None
-	if request.user.is_authenticated():
-		username = request.user.username
+	profile = request.user.get_profile()
 	
 	return render(request, 'golfApp/profile.html', {'profile': profile})
 

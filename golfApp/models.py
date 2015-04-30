@@ -56,7 +56,7 @@ class Profile(models.Model):
 	class Meta(object):
 		verbose_name_plural = "Profiles"
 	def __unicode__(self):
-		return unicode (self.user)
+		return self.user.get_full_name()	
 	def save(self, *args, **kwargs):
 		super(Profile, self).save(*args, **kwargs)
 

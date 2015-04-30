@@ -98,3 +98,5 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS=(
 	os.path.join(PROJECT_DIR, 'templates'),
 )
+
+AUTH_PROFILE_MODULE = 'accounts.Profile'
