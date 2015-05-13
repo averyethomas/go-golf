@@ -72,8 +72,9 @@ function createMarker(map, latlng, image, info) {
         var info = course.name;
         var course_url = course.id;
         var latLngMarker = new google.maps.LatLng(LatDec, LonDec);
-        var info ='<a href="/golfApp/course-profile/' + course_url + '">' + info + '</a>';
+        var info ='<a href="/courses/' + course_url + '">' + info + '</a>';
         createMarker(map, latLngMarker, image, info);
+        console.log(course_url)
 /*
         var marker = new google.maps.Marker({
           position: latLngMarker,
